@@ -9,6 +9,7 @@ import { NavComponent } from './nav/nav.component';
 import { appRoutes } from './routes';
 import { Error404Component } from './errors/404.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CollapsibleWellComponent } from './common/collapsible-well.component';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CreateEventComponent,
     Error404Component,
     CreateSessionComponent,
-    SessionListComponent
+    SessionListComponent,
+    CollapsibleWellComponent
   ],
   providers: [
     { provide: 'canDeactivateCreateEvent', useValue: (component: CreateEventComponent) => { if(component.isDirty) return window.confirm('You have not saved this event, do you really want to cancel?'); return true; } }
