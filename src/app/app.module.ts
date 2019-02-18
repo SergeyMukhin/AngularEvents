@@ -2,16 +2,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router'
 
-import { EventsListComponent, EventThumbnailComponent, EventDetailsComponent, CreateEventComponent} from './events/index';
+import { EventsListComponent, EventThumbnailComponent, EventDetailsComponent, CreateEventComponent, CreateSessionComponent} from './events/index';
 
 import { EventsAppComponent } from './events-app.component';
 import { NavComponent } from './nav/nav.component';
 import { appRoutes } from './routes';
 import { Error404Component } from './errors/404.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   declarations: [
@@ -21,7 +24,8 @@ import { Error404Component } from './errors/404.component';
     NavComponent,
     EventDetailsComponent,
     CreateEventComponent,
-    Error404Component
+    Error404Component,
+    CreateSessionComponent
   ],
   providers: [
     { provide: 'canDeactivateCreateEvent', useValue: (component: CreateEventComponent) => { if(component.isDirty) return window.confirm('You have not saved this event, do you really want to cancel?'); return true; } }
