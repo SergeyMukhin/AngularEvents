@@ -10,6 +10,9 @@ import { appRoutes } from './routes';
 import { Error404Component } from './errors/404.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CollapsibleWellComponent } from './common/collapsible-well.component';
+import { TOASTR_TOKEN, Toastr } from './common/toastr.component';
+
+declare let toastr: Toastr;
 
 @NgModule({
   imports: [
@@ -32,6 +35,7 @@ import { CollapsibleWellComponent } from './common/collapsible-well.component';
     DurationPipe
   ],
   providers: [
+    { provide: TOASTR_TOKEN, useValue: toastr },
     { provide: 'canDeactivateCreateEvent', useValue: (component: CreateEventComponent) => { if(component.isDirty) return window.confirm('You have not saved this event, do you really want to cancel?'); return true; } }
   ],
   bootstrap: [EventsAppComponent]
