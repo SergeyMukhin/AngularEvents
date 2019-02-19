@@ -22,11 +22,10 @@ export class EventDetailsComponent implements OnInit {
                 private router: Router) { }
 
     ngOnInit(): void {
-        this.route.params.forEach(params => {
-            let id = +params['id'];
-            this.event = this.eventsService.getEvent(id);
+        this.route.data.forEach(data => {
+            this.event = data['event'];
             this.addMode = false;
-        })
+        });
     }
 
     addSession() {
