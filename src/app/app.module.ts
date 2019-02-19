@@ -9,7 +9,8 @@ import { EventsListComponent,
          CreateSessionComponent, 
          SessionListComponent, 
          DurationPipe,
-         UpvoteComponent
+         UpvoteComponent,
+         LocationValidator
         } from './events/index';
 
 import { EventsAppComponent } from './events-app.component';
@@ -43,7 +44,8 @@ let jquery = window['$'];
     DurationPipe,
     SimpleModalComponent,
     ModalTriggerDirective,
-    UpvoteComponent
+    UpvoteComponent,
+    LocationValidator
   ],
   providers: [
     { provide: TOASTR_TOKEN, useValue: toastr },
