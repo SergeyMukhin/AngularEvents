@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges } from "@angular/core";
+import { Component, Input, OnChanges } from '@angular/core';
 import { ISession } from '../shared';
 import { AuthService } from '../../user/auth.service';
 import { VoterService } from './voter.service';
@@ -7,7 +7,7 @@ import { VoterService } from './voter.service';
     selector: 'session-list',
     templateUrl: './session-list.component.html'
 })
-export class SessionListComponent implements OnChanges { 
+export class SessionListComponent implements OnChanges {
     @Input() sessions: ISession[];
     @Input() filterBy: string;
     @Input() sortBy: string;
@@ -26,7 +26,7 @@ export class SessionListComponent implements OnChanges {
     }
 
     filterSessions(filterBy: string) {
-        if(filterBy === 'all') {
+        if (filterBy === 'all') {
             this.visibleSessions = this.sessions.slice(0);
         } else {
             this.visibleSessions = this.sessions.filter(s => s.level.toLocaleLowerCase() === filterBy);
@@ -34,9 +34,13 @@ export class SessionListComponent implements OnChanges {
     }
 
     sortByNameAsc(sessionA: ISession, sessionB: ISession) {
-        if (sessionA.name > sessionB.name) return 1;
-        else if (sessionA.name === sessionB.name) return 0;
-        else return -1;
+        if (sessionA.name > sessionB.name) {
+            return 1;
+        } else if (sessionA.name === sessionB.name) {
+            return 0;
+        } else {
+            return -1;
+        }
     }
 
     sortByVotesDesc(sessionA: ISession, sessionB: ISession) {
@@ -50,7 +54,7 @@ export class SessionListComponent implements OnChanges {
             this.voterService.addVoter(this.eventId, session, this.authService.currentUser.userName);
         }
 
-        if(this.sortBy === 'votes') {
+        if (this.sortBy === 'votes') {
             this.visibleSessions.sort(this.sortByVotesDesc);
         }
     }

@@ -41,7 +41,7 @@ export class CreateSessionComponent implements OnInit {
     }
 
     addSession(formValues) {
-        let session: ISession = {
+        const session: ISession = {
             abstract: formValues.abstract,
             duration: +formValues.duration,
             level: formValues.level,

@@ -11,7 +11,7 @@ export class AuthService {
     currentUser: IUser;
 
     constructor(private http: HttpClient) { }
-    
+
     loginUser(username: string, password: string) {
         const logInfo = {
             username,
@@ -26,11 +26,11 @@ export class AuthService {
 
         return this.http.post('/api/login', logInfo, options)
           .pipe(tap(data => {
-              this.currentUser = <IUser>data['user']
+              this.currentUser = data.user as IUser;
           }))
           .pipe(catchError(err => {
               return of(false);
-          }))
+          }));
     }
 
     isAuthenticated() {
@@ -41,7 +41,7 @@ export class AuthService {
         this.http.get('/api/currentIdentity')
           .pipe(tap(data => {
                           if (data instanceof Object) {
-                this.currentUser = <IUser>data;
+                this.currentUser = data as IUser;
             }
         }))
           .subscribe();

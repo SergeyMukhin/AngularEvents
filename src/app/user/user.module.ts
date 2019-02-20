@@ -17,6 +17,6 @@ import { LoginComponent } from './login.component';
         ProfileComponent,
         LoginComponent
     ],
-    exports:[]
+    exports: []
 })
 export class UserModule {}

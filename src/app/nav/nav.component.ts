@@ -8,7 +8,7 @@ import { ISession, EventsService, IEvent } from '../events';
     styleUrls: [ './nav.component.css' ]
 })
 export class NavComponent implements OnInit {
-    searchTerm: string = "";
+    searchTerm = '';
     foundSessions: ISession[] = [];
     events: IEvent[];
 
@@ -19,7 +19,7 @@ export class NavComponent implements OnInit {
         this.eventsService.getEvents().subscribe(data => this.events = data);
         this.eventsService.eventsUpdated.subscribe(() => {
             this.eventsService.getEvents().subscribe(data => this.events = data);
-        })
+        });
     }
 
     searchSessions(searchTerm) {

@@ -4,7 +4,7 @@ import { JQUERY_TOKEN } from './jquery.service';
 
 @Component({
     selector: 'simple-modal',
-    template:`
+    template: `
     <div id="{{elementId}}" #modalcontainer class="modal fade" tabindex="-1">
       <div class="modal-dialog">
         <div class="modal-content">

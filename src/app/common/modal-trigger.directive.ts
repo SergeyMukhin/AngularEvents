@@ -4,7 +4,7 @@ import { JQUERY_TOKEN } from './jquery.service';
 @Directive({
     selector: '[modal-trigger]'
 })
-export class ModalTriggerDirective implements OnInit { 
+export class ModalTriggerDirective implements OnInit {
     private el: HTMLElement;
     @Input('modal-trigger') modalId: string;
     constructor(@Inject(JQUERY_TOKEN) private $: any,

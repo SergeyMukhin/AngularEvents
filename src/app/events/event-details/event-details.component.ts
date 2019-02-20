@@ -6,23 +6,23 @@ import { IEvent, EventsService, ISession } from '../shared/index';
     templateUrl: './event-details.component.html',
     styles: [`
         .container { padding-left: 20px; padding-right:20px; }
-        .event-image { height: 100px; } 
+        .event-image { height: 100px; }
         a {cursor: pointer}
         `
     ]
 })
 export class EventDetailsComponent implements OnInit {
-    addMode: boolean = false;
+    addMode = false;
     event: IEvent;
-    filterBy: string = 'all';
-    sortBy: string = 'votes';
+    filterBy = 'all';
+    sortBy = 'votes';
 
     constructor(private eventsService: EventsService,
                 private route: ActivatedRoute) { }
 
     ngOnInit(): void {
         this.route.data.forEach(data => {
-            this.event = data['event'];
+            this.event = data.event;
             this.addMode = false;
         });
     }
@@ -38,8 +38,8 @@ export class EventDetailsComponent implements OnInit {
             this.addMode = false;
         });
     }
-    
+
     cancelAddSession() {
         this.addMode = false;
     }
-};
+}
