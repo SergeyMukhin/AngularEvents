@@ -18,8 +18,7 @@ export class EventDetailsComponent implements OnInit {
     sortBy: string = 'votes';
 
     constructor(private eventsService: EventsService,
-                private route: ActivatedRoute,
-                private router: Router) { }
+                private route: ActivatedRoute) { }
 
     ngOnInit(): void {
         this.route.data.forEach(data => {
@@ -35,8 +34,9 @@ export class EventDetailsComponent implements OnInit {
     saveNewSession(session: ISession) {
         session.id = Math.max(...this.event.sessions.map(s => s.id)) + 1;
         this.event.sessions.push(session);
-        this.eventsService.updateEvent(this.event);
-        this.addMode = false;
+        this.eventsService.saveEvent(this.event).subscribe(() => {
+            this.addMode = false;
+        });
     }
     
     cancelAddSession() {
