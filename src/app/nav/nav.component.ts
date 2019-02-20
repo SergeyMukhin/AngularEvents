@@ -13,7 +13,7 @@ export class NavComponent implements OnInit {
     events: IEvent[];
 
     constructor(private eventsService: EventsService,
-                private authService: AuthService) { }
+                public authService: AuthService) { }
 
     ngOnInit() {
         this.eventsService.getEvents().subscribe(data => this.events = data);

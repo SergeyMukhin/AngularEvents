@@ -27,7 +27,7 @@ export class CreateEventComponent {
         });
     }
 
-    goBack() {
+    cancel() {
         this.router.navigate(['/events']);
     }
 }
