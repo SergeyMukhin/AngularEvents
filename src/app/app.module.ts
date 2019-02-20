@@ -20,8 +20,8 @@ import { NavComponent } from './nav/nav.component';
 import { appRoutes } from './routes';
 import { Error404Component } from './errors/404.component';
 
-const toastr: Toastr = window.toastr;
-const jquery = window.$;
+const toastr: Toastr = window['toastr'];
+const jquery = window['$'];
 
 @NgModule({
   imports: [

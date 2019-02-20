@@ -26,7 +26,7 @@ export class AuthService {
 
         return this.http.post('/api/login', logInfo, options)
           .pipe(tap(data => {
-              this.currentUser = data.user as IUser;
+              this.currentUser = <IUser>data['user'];
           }))
           .pipe(catchError(err => {
               return of(false);
